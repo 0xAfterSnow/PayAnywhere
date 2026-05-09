@@ -9,6 +9,8 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { AnchorProvider } from '@coral-xyz/anchor';
 import { PayAnywhereSDK } from '@/lib/payAnywhere';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Store01Icon, ShoppingBag03Icon } from '@hugeicons/core-free-icons';
 
 interface Props { onComplete: () => void; }
 
@@ -17,7 +19,7 @@ const MerchantSetup: React.FC<Props> = ({ onComplete }) => {
   const { connection } = useConnection();
   const { toast } = useToast();
   const [merchantName, setMerchantName] = useState('');
-  const [feeBps, setFeeBps] = useState('0');
+  const [feeBps, setFeeBps] = useState('100');
   const [step, setStep] = useState(0);
   const [loading, setLoading] = useState(false);
 
@@ -48,7 +50,7 @@ const MerchantSetup: React.FC<Props> = ({ onComplete }) => {
     <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} className="min-h-[60vh] flex items-center justify-center">
       <div className="surface-brand rounded-3xl p-8 max-w-sm w-full mx-auto">
         <div className="text-center mb-7">
-          <div className="text-4xl mb-3">🏪</div>
+          <div className="flex items-center justify-center text-4xl mb-3"><HugeiconsIcon icon={Store01Icon} /></div>
           <h2 className="text-xl font-extrabold text-foreground mb-1.5">Merchant Setup</h2>
           <p className="text-sm text-muted-foreground">Initialize your merchant PDA on Solana.</p>
         </div>
@@ -62,7 +64,9 @@ const MerchantSetup: React.FC<Props> = ({ onComplete }) => {
         {step === 0 && (
           <div className="space-y-5">
             <div className="surface-card rounded-2xl p-5 text-center">
-              <div className="text-2xl mb-2">👛</div>
+              <div className="flex items-center justify-center text-2xl mb-2">
+                <HugeiconsIcon icon={ShoppingBag03Icon} />
+              </div>
               <p className="text-sm text-muted-foreground mb-4">Connect your Solana wallet</p>
               {connected ? (
                 <div className="space-y-2">
@@ -88,13 +92,8 @@ const MerchantSetup: React.FC<Props> = ({ onComplete }) => {
         {step === 1 && (
           <div className="space-y-5">
             <div>
-              <Label className="text-sm text-muted-foreground font-semibold mb-1.5 block">Business Name</Label>
+              <Label className="text-sm text-muted-foreground font-semibold mb-1.5 block">Name</Label>
               <Input value={merchantName} onChange={(e) => setMerchantName(e.target.value)} placeholder="My Store" className="h-12 rounded-2xl bg-secondary border-border/60" />
-            </div>
-            <div>
-              <Label className="text-sm text-muted-foreground font-semibold mb-1.5 block">Fee (basis points)</Label>
-              <Input type="number" value={feeBps} onChange={(e) => setFeeBps(e.target.value)} placeholder="0" className="h-12 rounded-2xl bg-secondary border-border/60" />
-              <p className="text-xs text-muted-foreground mt-1.5">0 = no fee, 100 = 1%</p>
             </div>
             <div className="flex gap-2.5">
               <Button variant="outline" onClick={() => setStep(0)} className="flex-1 h-11 border-border/60 rounded-2xl font-semibold">Back</Button>

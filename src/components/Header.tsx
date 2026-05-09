@@ -4,7 +4,8 @@ import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import { Coins02Icon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 const navLinks = [
   { label: 'Home', path: '/' },
   { label: 'Dashboard', path: '/dashboard' },
@@ -24,9 +25,7 @@ const Header: React.FC = () => {
           <Link to="/" className="flex items-center gap-2.5 group">
             <div className="relative flex h-8 w-8 items-center justify-center">
               <div className="absolute inset-0 rounded-xl bg-primary/12 group-hover:bg-primary/18 transition-colors" />
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="relative z-10">
-                <path d="M7 0L13.0622 3.5V10.5L7 14L0.937822 10.5V3.5L7 0Z" fill="hsl(258,72%,58%)" />
-              </svg>
+              <HugeiconsIcon icon={Coins02Icon} color='hsl(258,72%,58%)' />
             </div>
             <span className="text-[15px] font-bold tracking-tight text-foreground">
               Pay<span className="text-primary">Anywhere</span>

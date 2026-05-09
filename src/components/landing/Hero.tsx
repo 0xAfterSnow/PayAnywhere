@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SUPPORTED_CHAINS } from '@/lib/constants';
+import { CryptoIcons } from '@/components/crypto-icons';
 
 const Hero: React.FC = () => {
   return (
@@ -85,18 +86,21 @@ const Hero: React.FC = () => {
             className="flex flex-wrap items-center justify-center gap-2 mb-16"
           >
             <span className="text-xs text-muted-foreground mr-1 font-medium">Accepts from</span>
-            {SUPPORTED_CHAINS.map((chain, i) => (
-              <motion.span
-                key={chain.id}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.3 + i * 0.05 }}
-                className="chain-pill"
-              >
-                <span className="text-sm">{chain.icon}</span>
-                <span className="text-secondary-foreground">{chain.name}</span>
-              </motion.span>
-            ))}
+            {SUPPORTED_CHAINS.map((chain, i) => {
+              const Icon = chain.icon;
+              return (
+                <motion.span
+                  key={chain.id}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.3 + i * 0.05 }}
+                  className="chain-pill"
+                >
+                  <span className="text-sm"><Icon className="h-7 w-7 [&_rect]:hidden" /></span>
+                  <span className="text-secondary-foreground">{chain.name}</span>
+                </motion.span>
+              );
+            })}
             <span className="chain-pill text-muted-foreground">+60 more</span>
           </motion.div>
 
@@ -120,7 +124,7 @@ const Hero: React.FC = () => {
               </div>
               <div className="space-y-2">
                 <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-primary/6 border border-primary/12">
-                  <span className="text-lg">🔵</span>
+                  <span className="text-lg"><CryptoIcons.base /></span>
                   <div className="flex-1">
                     <p className="text-sm font-bold text-foreground">Base</p>
                     <p className="text-[11px] text-muted-foreground">Pay with ETH</p>
@@ -130,7 +134,7 @@ const Hero: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-secondary/60">
-                  <span className="text-lg">⟠</span>
+                  <span className="text-lg"><CryptoIcons.eth className="h-6 w-6" /></span>
                   <div className="flex-1">
                     <p className="text-sm font-bold text-foreground/60">Ethereum</p>
                     <p className="text-[11px] text-muted-foreground">Pay with ETH</p>
@@ -138,7 +142,7 @@ const Hero: React.FC = () => {
                 </div>
               </div>
               <div className="mt-4 h-11 rounded-2xl bg-primary flex items-center justify-center text-sm font-bold text-primary-foreground shadow-lg shadow-primary/20">
-                ⚡ Pay $5.00 from Base →
+                Pay $5.00 from Base →
               </div>
             </div>
           </motion.div>

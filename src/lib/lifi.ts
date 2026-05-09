@@ -50,6 +50,7 @@ export const USDC_ADDRESSES: Record<number, string> = {
   137: '0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359',     // Polygon
   56: '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',      // BSC
   43114: '0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E',   // Avalanche
+  84532: '0x036CbD53842c5426634e7929541eC2318f3dCF7e',   // Base Sepolia
 };
 
 // ── Route Finder ────────────────────────────────────────────────────────────

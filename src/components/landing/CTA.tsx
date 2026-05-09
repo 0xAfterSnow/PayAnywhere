@@ -21,12 +21,11 @@ const CTA: React.FC = () => {
 
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/8 border border-primary/12 mb-7">
-              <Sparkles className="h-3.5 w-3.5 text-primary" />
               <span className="text-xs font-bold text-primary">Get started in 30 seconds</span>
             </div>
 
             <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-4 tracking-tight">
-              Start accepting cross-chain payments ✨
+              Start accepting cross-chain payments
             </h2>
             <p className="text-sm text-muted-foreground max-w-sm mx-auto mb-8 leading-relaxed">
               Connect your wallet, create a link, get USDC from any chain.

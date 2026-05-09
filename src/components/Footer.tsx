@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Github, ExternalLink } from 'lucide-react';
+import { Coins02Icon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 
 const Footer: React.FC = () => {
   return (
@@ -10,11 +12,12 @@ const Footer: React.FC = () => {
           <div className="space-y-3">
             <Link to="/" className="flex items-center gap-2.5">
               <div className="h-7 w-7 rounded-xl bg-primary/12 flex items-center justify-center">
-                <svg width="11" height="11" viewBox="0 0 14 14" fill="none">
-                  <path d="M7 0L13.0622 3.5V10.5L7 14L0.937822 10.5V3.5L7 0Z" fill="hsl(258,72%,58%)" />
-                </svg>
+                <HugeiconsIcon icon={Coins02Icon} color='hsl(258,72%,58%)' />
+
               </div>
-              <span className="text-sm font-bold text-foreground">PayAnywhere</span>
+              <span className="text-[15px] font-bold tracking-tight text-foreground">
+                Pay<span className="text-primary">Anywhere</span>
+              </span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
               Cross-chain payment links. Powered by Solana, LI.FI, and x402.

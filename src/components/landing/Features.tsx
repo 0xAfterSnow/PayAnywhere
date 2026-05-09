@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { EarthIcon, CoinsSwapIcon, CheckmarkBadge03Icon, Clock01Icon, BarChart01Icon, Link04Icon } from '@hugeicons/core-free-icons';
+import { EarthIcon, ZapIcon, ShieldBlockchainIcon, CodesandboxIcon, BarChartIcon, Link04Icon } from '@hugeicons/core-free-icons';
 import { HugeiconsIcon } from '@hugeicons/react';
 
 const features = [
   { icon: <HugeiconsIcon icon={EarthIcon} />, title: 'Cross-Chain Native', desc: 'LI.FI SDK routes across 60+ chains. Destination-amount routing guarantees exact USDC delivery.' },
-  { icon: <HugeiconsIcon icon={CoinsSwapIcon} />, title: 'Instant Settlement', desc: 'On-chain escrow auto-releases USDC the moment the bridge confirms. No waiting.' },
-  { icon: <HugeiconsIcon icon={CheckmarkBadge03Icon} />, title: 'x402 Standard', desc: 'HTTP 402 Payment Required. The new internet-native payment standard, built for the future.' },
-  { icon: <HugeiconsIcon icon={Clock01Icon} />, title: 'Anchor Escrow', desc: 'Three instructions, two events, zero bloat. A lean, auditable Solana program.' },
-  { icon: <HugeiconsIcon icon={BarChart01Icon} />, title: 'Live Dashboard', desc: 'Create links, track settlements, view real-time payment history from on-chain data.' },
+  { icon: <HugeiconsIcon icon={ZapIcon} />, title: 'Instant Settlement', desc: 'On-chain escrow auto-releases USDC the moment the bridge confirms. No waiting.' },
+  { icon: <HugeiconsIcon icon={ShieldBlockchainIcon} />, title: 'x402 Standard', desc: 'HTTP 402 Payment Required. The new internet-native payment standard, built for the future.' },
+  { icon: <HugeiconsIcon icon={CodesandboxIcon} />, title: 'Anchor Escrow', desc: 'Three instructions, two events, zero bloat. A lean, auditable Solana program.' },
+  { icon: <HugeiconsIcon icon={BarChartIcon} />, title: 'Live Dashboard', desc: 'Create links, track settlements, view real-time payment history from on-chain data.' },
   { icon: <HugeiconsIcon icon={Link04Icon} />, title: 'Shareable Links', desc: 'Generate payment URLs — embed anywhere, create QR codes, share on social.' },
 ];
 

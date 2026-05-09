@@ -142,13 +142,12 @@ const PaymentFlow: React.FC<Props> = ({ amount, chainId, chainName, merchantAddr
               return (
                 <div key={s} className="flex items-center gap-3">
                   <div
-                    className={`h-7 w-7 rounded-full flex items-center justify-center transition-all ${
-                      isDone
+                    className={`h-7 w-7 rounded-full flex items-center justify-center transition-all ${isDone
                         ? 'bg-primary shadow-md shadow-primary/20'
                         : isActive
-                        ? 'bg-primary/10 border-2 border-primary/30'
-                        : 'bg-secondary border border-border/60'
-                    }`}
+                          ? 'bg-primary/10 border-2 border-primary/30'
+                          : 'bg-secondary border border-border/60'
+                      }`}
                   >
                     {isDone ? (
                       <CheckCircle className="h-3.5 w-3.5 text-primary-foreground" />
@@ -159,9 +158,8 @@ const PaymentFlow: React.FC<Props> = ({ amount, chainId, chainName, merchantAddr
                     )}
                   </div>
                   <span
-                    className={`text-sm ${
-                      isDone ? 'text-primary font-semibold' : isActive ? 'text-foreground font-bold' : 'text-muted-foreground'
-                    }`}
+                    className={`text-sm ${isDone ? 'text-primary font-semibold' : isActive ? 'text-foreground font-bold' : 'text-muted-foreground'
+                      }`}
                   >
                     {labels[s]}
                   </span>
@@ -248,7 +246,7 @@ const PaymentFlow: React.FC<Props> = ({ amount, chainId, chainName, merchantAddr
             'Connect EVM wallet first'
           ) : (
             <>
-              <Zap className="h-4 w-4" /> Pay ${amount.toFixed(2)} from {chainName}{' '}
+              Pay ${amount.toFixed(2)} from {chainName}{' '}
               <ArrowRight className="h-4 w-4" />
             </>
           )}

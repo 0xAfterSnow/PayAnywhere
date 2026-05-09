@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path';
+import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
   server: {
@@ -9,7 +10,7 @@ export default defineConfig({
     allowedHosts: true,
     watch: { usePolling: true }
   },
-  plugins: [react()],
+  plugins: [react(), svgr()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),

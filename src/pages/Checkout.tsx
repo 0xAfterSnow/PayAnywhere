@@ -11,7 +11,8 @@ import ChainSelector from '@/components/checkout/ChainSelector';
 import PaymentFlow from '@/components/checkout/PaymentFlow';
 import { SUPPORTED_CHAINS } from '@/lib/constants';
 import { PayAnywhereSDK, type PaymentData } from '@/lib/payAnywhere';
-
+import { Coins02Icon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 /** Tiny helper – turn a BN-like into a number safely */
 const bnToNumber = (value: unknown): number => {
   if (value && typeof (value as any).toNumber === 'function') {
@@ -127,10 +128,11 @@ const Checkout: React.FC = () => {
             </Link>
             <Link to="/" className="flex items-center gap-2">
               <div className="h-7 w-7 rounded-xl bg-primary/15 flex items-center justify-center">
-                <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M7 0L13.0622 3.5V10.5L7 14L0.937822 10.5V3.5L7 0Z" fill="hsl(258,72%,58%)" /></svg>
+                <HugeiconsIcon icon={Coins02Icon} color='hsl(258,72%,58%)' />
               </div>
-              <span className="text-sm font-bold text-foreground">Pay<span className="text-primary">Anywhere</span></span>
-            </Link>
+              <span className="text-[15px] font-bold tracking-tight text-foreground">
+                Pay<span className="text-primary">Anywhere</span>
+              </span>            </Link>
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <Lock className="h-3 w-3" /> Secure
             </div>
