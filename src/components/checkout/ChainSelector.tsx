@@ -19,6 +19,8 @@ const ChainSelector: React.FC<ChainSelectorProps> = ({ selectedChainId, onSelect
       <div className="grid grid-cols-2 gap-2.5">
         {SUPPORTED_CHAINS.map((chain) => {
           const active = selectedChainId === chain.id;
+          const Icon = chain.icon;
+
           const meta = CHAIN_META[chain.id];
 
           return (
@@ -27,13 +29,12 @@ const ChainSelector: React.FC<ChainSelectorProps> = ({ selectedChainId, onSelect
               whileTap={{ scale: 0.97 }}
               whileHover={{ y: -1 }}
               onClick={() => onSelect(chain.id)}
-              className={`flex items-center gap-3 px-4 py-3.5 rounded-2xl text-left transition-all ${
-                active
+              className={`flex items-center gap-3 px-4 py-3.5 rounded-2xl text-left transition-all ${active
                   ? 'bg-primary/8 border-2 border-primary/30 shadow-md shadow-primary/5'
                   : 'surface-card hover:border-border/80'
-              }`}
+                }`} s
             >
-              <span className="text-xl">{chain.icon}</span>
+              <span className="text-xl"><Icon className="h-7 w-7 [&_rect]:hidden" /></span>
               <div className="flex-1 min-w-0">
                 <p className={`text-sm font-bold truncate ${active ? 'text-foreground' : 'text-secondary-foreground'}`}>
                   {chain.name}

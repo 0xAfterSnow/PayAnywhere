@@ -2,40 +2,37 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Globe, Shield, Code, Sparkles } from 'lucide-react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { EarthIcon, CodesandboxIcon } from '@hugeicons/core-free-icons';
 
 const snippets = {
-  lifi: `import { createConfig, getRoutes, executeRoute } from '@lifi/sdk';
+  lifi: `import { createConfig, getRoutes, executeRoute, EVM, Solana } from '@lifi/sdk';
 
-createConfig({ integrator: 'PayAnywhere' });
+// 1. Initialize with EVM + Solana providers
+createConfig({ 
+  integrator: 'PayAnywhere',
+  providers: [EVM({ getWalletClient, switchChain }), Solana()] 
+});
 
+// 2. Fetch cross-chain route to Solana
 const routes = await getRoutes({
   fromChainId: 8453,        // Base
   toChainId: 1151111081099710, // Solana
-  fromTokenAddress: USDC_BASE,
+  fromTokenAddress: NATIVE_TOKEN,
   toTokenAddress: USDC_MINT,
   fromAmount: '5000000',    // 5 USDC
+  fromAddress: payerAddress,
+  toAddress: merchantAddress,
+  options: { slippage: 0.03, order: 'RECOMMENDED', allowSwitchChain: true }
 });
 
+// 3. Execute and monitor progress
 await executeRoute(routes[0], {
   updateRouteHook: (route) => {
     console.log('Status:', route.steps);
   }
 });`,
-  x402: `// GET /pay/:merchantId/:orderId
-// → 402 Payment Required
 
-{
-  "amount": "5.00",
-  "currency": "USDC",
-  "chain": "solana",
-  "recipient": "9PJ8I...3555",
-  "reference": "ORD-2024-001"
-}
-
-// Client pays via LI.FI → Solana
-// POST /pay/verify  X-PAYMENT: <proof>
-// → 200 OK`,
   anchor: `#[program]
 pub mod workspace {
   pub fn initialize_merchant(
@@ -57,7 +54,7 @@ pub mod workspace {
 }`,
 };
 
-const DocBlock: React.FC<{ emoji: string; title: string; desc: string; code: string; delay: number }> = ({ emoji, title, desc, code, delay }) => (
+const DocBlock: React.FC<{ emoji: React.ReactNode; title: string; desc: string; code: string; delay: number }> = ({ emoji, title, desc, code, delay }) => (
   <motion.div
     initial={{ opacity: 0, y: 16 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -88,7 +85,6 @@ const Docs: React.FC = () => (
       <div className="container mx-auto">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="max-w-3xl mx-auto text-center mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/8 border border-primary/12 mb-6">
-            <Sparkles className="h-3.5 w-3.5 text-primary" />
             <span className="text-xs font-bold text-primary">Developer Reference</span>
           </div>
           <h1 className="text-3xl font-extrabold text-foreground mb-3 tracking-tight">Technical Docs</h1>
@@ -96,9 +92,8 @@ const Docs: React.FC = () => (
         </motion.div>
 
         <div className="max-w-3xl mx-auto space-y-6">
-          <DocBlock emoji="🌍" title="LI.FI SDK" desc="Production cross-chain routing. Destination-amount routing, wallet signing, and real bridge execution." code={snippets.lifi} delay={0} />
-          <DocBlock emoji="🛡️" title="x402 Protocol" desc="HTTP 402 Payment Required. Client pays, sends proof header, server verifies on-chain." code={snippets.x402} delay={0.08} />
-          <DocBlock emoji="📦" title="Anchor Escrow" desc="Three instructions, two events. PDA seeds, payment counters, escrow-to-merchant USDC transfer." code={snippets.anchor} delay={0.16} />
+          <DocBlock emoji={<HugeiconsIcon icon={EarthIcon} />} title="LI.FI SDK" desc="Production cross-chain routing. Destination-amount routing, wallet signing, and real bridge execution." code={snippets.lifi} delay={0} />
+          <DocBlock emoji={<HugeiconsIcon icon={CodesandboxIcon} />} title="Anchor Escrow" desc="Three instructions, two events. PDA seeds, payment counters, escrow-to-merchant USDC transfer." code={snippets.anchor} delay={0.08} />
         </div>
       </div>
     </main>
