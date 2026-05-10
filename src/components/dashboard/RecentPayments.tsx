@@ -28,7 +28,7 @@ const RecentPayments: React.FC<RecentPaymentsProps> = ({ payments }) => (
 
     {!payments.length && (
       <div className="p-10 text-center">
-        <div className="text-3xl mb-3"><HugeiconsIcon icon={Activity01Icon} /></div>
+        <div className="flex items-center justify-center text-3xl mb-3"><HugeiconsIcon icon={Activity01Icon} /></div>
         <p className="text-sm font-bold text-foreground">No payments yet</p>
         <p className="mx-auto mt-1.5 max-w-xs text-sm text-muted-foreground">Real settlement activity will appear here after payments are created on-chain.</p>
       </div>

@@ -50,7 +50,6 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="mt-10 pt-6 border-t border-border/20 flex items-center justify-between">
-          <p className="text-xs text-muted-foreground">Solana Colosseum Hackathon</p>
           <span className="inline-flex items-center gap-1.5 text-xs font-bold badge-settled px-3 py-1 rounded-full">
             <span className="h-1.5 w-1.5 rounded-full bg-current" />
             Devnet

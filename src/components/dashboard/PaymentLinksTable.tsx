@@ -43,7 +43,7 @@ const PaymentLinksTable: React.FC<PaymentLinksTableProps> = ({ merchantAddress, 
 
       {!payments.length && (
         <div className="p-10 text-center">
-          <div className="text-3xl mb-3"><HugeiconsIcon icon={Link04Icon} /></div>
+          <div className="flex items-center justify-center text-3xl mb-3"><HugeiconsIcon icon={Link04Icon} /></div>
           <p className="text-sm font-bold text-foreground">No payment requests yet</p>
           <p className="mx-auto mt-1.5 max-w-xs text-sm text-muted-foreground">Create one to generate a real on-chain payment account.</p>
         </div>
