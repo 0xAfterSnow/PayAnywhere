@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
                 </a>
               ))}
             </div>
-            <a href="#" className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors">
+            <a href="https://github.com/0xAfterSnow/PayAnywhere" target='_blank' className="p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors">
               <Github className="h-4 w-4" />
             </a>
           </div>
